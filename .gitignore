@@ -1,0 +1,7 @@
+*.pcapng
+*.pcap
+*.cap
+*_export_*.json
+__pycache__/
+*.pyc
+.qoder/
