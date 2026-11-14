@@ -604,6 +604,8 @@ def analyze(pcap):
     all_true_frames = set()
     all_false_frames = set()
     all_classified_reqs = []  # (req, is_true) for export
+    all_targets = {}
+    host = "unknown"
 
     for endpoint, reqs in groups.items():
         print(f"\n{C.BO}{'═'*65}")
@@ -697,7 +699,6 @@ def analyze(pcap):
             key = (e["column"], e["table"], e["where"])
             table_groups[key].append(e)
 
-        all_targets = {}
         for (column, table, where), group_entries in table_groups.items():
             where_short = where[:50] if where else "N/A"
             ctx = group_entries[0].get("context", "")
